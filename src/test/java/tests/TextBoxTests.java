@@ -17,6 +17,7 @@ public class TextBoxTests {
     Configuration.baseUrl = "https://demoqa.com";
     Configuration.pageLoadStrategy = "eager";
     Configuration.timeout = 5000; // default 4000
+    Configuration.holdBrowserOpen = true; // default 4000
   }
 
   @Test
@@ -28,8 +29,8 @@ public class TextBoxTests {
     $("#permanentAddress").setValue("Another street");
     $("#submit").click();
 
-    $("#output #name").shouldHave(text("Alex"));
-    $("#output #email").shouldHave(text("alex@egorov.com"));
+    $("#name").shouldHave(text("Alex"));
+    $("#email").shouldHave(text("alex@egorov.com"));
     $("#output #currentAddress").shouldHave(text("Some street 1"));
     $("#output #permanentAddress").shouldHave(text("Another street"));
   }
