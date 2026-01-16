@@ -13,11 +13,12 @@ public class TextBoxTests {
 
   @BeforeAll
   static void beforeAll() {
-    Configuration.browserSize = "1920x1080";
+    Configuration.browserSize = "1920x1080"; // Делаем окно большим, чтобы ничего не съезжало
     Configuration.baseUrl = "https://demoqa.com";
-    Configuration.pageLoadStrategy = "eager";
-    Configuration.timeout = 5000; // default 4000
-    Configuration.holdBrowserOpen = true; // default 4000
+    Configuration.pageLoadStrategy = "eager"; // Тесты запускаются быстрее
+    Configuration.timeout = 5000; // Если элемент не появится за 5 секунд, то тест упадёт
+    Configuration.holdBrowserOpen = true;  // После выполнения теста, браузер не закрывается автоматически.
+
   }
 
   @Test
