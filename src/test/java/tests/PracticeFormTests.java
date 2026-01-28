@@ -1,9 +1,10 @@
 package tests;
 
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-
 import com.codeborne.selenide.Configuration;
 import java.io.File;
 import org.junit.jupiter.api.BeforeAll;
@@ -17,16 +18,20 @@ public class PracticeFormTests {
     Configuration.baseUrl = "https://demoqa.com"; // url сайта
     Configuration.pageLoadStrategy = "eager"; // Тесты запускаются быстрее
     Configuration.timeout = 5000; // Если элемент не появится за 5 секунд, то тест упадёт
-    Configuration.holdBrowserOpen = true;  // После выполнения теста, браузер не закрывается автоматически.
+    Configuration.holdBrowserOpen = true;  // После выполнения теста, браузер не закрывается автоматически
 
   }
 
   @Test
   void fillFormTest() {
     open("https://demoqa.com/automation-practice-form"); // открыли сайт
+    $(".practice-form-wrapper").shouldHave(text("Student Registration Form")); // в заголовке должен быть данный текст
+
+
     $("#firstName").setValue("Tatiana"); // нашли по id, ввели значение
     $("#lastName").setValue("Mel"); // нашли по id, ввели значение
     $("#userEmail").setValue("tanya12345@gmail.com"); // нашли по id, ввели значение
+
 
     $("#genterWrapper").$(byText("Female")).click();
     // #genterWrapper- это контейнер с тремя радио кнопками. $(byText("Female")) - ищем внутри контейнера элемент с видимым текстом
@@ -50,6 +55,9 @@ public class PracticeFormTests {
     $("#city input").setValue("Delhi").pressEnter(); // поле - выпадающий список, ввели текст, кликнули Enter
 
     $("#submit").click(); // кликнули на кнопку
+
+
+    $(".modal-content").should(appear); // должно появиться окно с заполненной формой
 
   }
 }
