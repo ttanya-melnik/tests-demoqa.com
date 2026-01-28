@@ -58,6 +58,7 @@ public class PracticeFormTests {
 
 
     $(".modal-content").should(appear); // должно появиться окно с заполненной формой
+    $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form")); // форма должна содержать данный текст
 
   }
 }
