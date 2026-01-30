@@ -24,7 +24,7 @@ public class PracticeFormTests {
 
   @Test
   void fillFormTest() {
-    open("https://demoqa.com/automation-practice-form"); // открыли сайт
+    open("/automation-practice-form"); // открыли сайт
     $(".practice-form-wrapper").shouldHave(text("Student Registration Form")); // в заголовке должен быть данный текст
 
 
