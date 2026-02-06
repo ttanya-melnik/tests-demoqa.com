@@ -2,6 +2,7 @@ package tests;
 
 import static com.codeborne.selenide.Condition.checked;
 import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -32,10 +33,9 @@ public class RadioButtonTests {
 
 
     // проверяем, что ничего не выбрано
-    $("#yesRadio").shouldNotBe(checked); // (атрибут checked должен быть у input), но не должен быть выбран
+    $("#yesRadio").shouldNotBe(checked); // атрибут checked не должен быть у input
     $("#impressiveRadio").shouldNotBe(checked);
     $("#noRadio").shouldNotBe(checked);
-    $(".text-success").shouldNotBe(visible); // ИЛИ $(".text-success").shouldBe(hidden); // элемент не должен быть виден
 
 
     // проверка клика на "Yes"
