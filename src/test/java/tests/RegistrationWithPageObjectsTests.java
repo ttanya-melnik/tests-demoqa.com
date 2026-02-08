@@ -41,7 +41,7 @@ public class RegistrationWithPageObjectsTests {
         .clickSubmit()
         .checkModalContent()
         .shouldHaveModalTitle("Thanks for submitting the form")
-        .checkResult("Student Name", "Tatiana Mel");
+        .checkResult("Tatiana", "Mel");
 
   }
 }

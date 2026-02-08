@@ -16,13 +16,15 @@ public class RegistrationPage { // класс — Page Object
 
   public static SelenideElement lastNameInput =$("#lastName");
 
-  public static SelenideElement userEmailInput =$("tanya12345@gmail.com");
+  public static SelenideElement userEmailInput =$("#userEmail");
 
   public static SelenideElement genderWrapper =$("#genterWrapper");
 
   public static SelenideElement userNumberInput =$("#userNumber");
 
   public static SelenideElement calendarInput =$("#dateOfBirthInput");
+
+  public static SelenideElement checkResult =$(".table-responsive");
 
   public static SelenideElement subjectsInput =$("#subjectsInput");
 
@@ -40,7 +42,7 @@ public class RegistrationPage { // класс — Page Object
 
   public static SelenideElement checkModalContent =$(".modal-content");
 
-  public static SelenideElement checkModalSizesTitleLg =$("example-modal-sizes-title-lg");
+  public static SelenideElement checkModalSizesTitleLg =$("#example-modal-sizes-title-lg");
 
 
 
@@ -87,9 +89,8 @@ public class RegistrationPage { // класс — Page Object
     return this;
   }
 
-  public RegistrationPage checkResult(String key, String value) {
-    $(".table-responsive").$(byText(key)).shouldHave(text(value));
-
+  public RegistrationPage checkResult(String firstName, String lastName) {
+    checkResult.shouldHave(text(firstName), text(lastName));
     return this;
   }
   public RegistrationPage setSubjects(String value) {
