@@ -45,7 +45,7 @@ public class RegistrationWithRandomUtilsTests {
     $("#lastName").setValue(lastName);
     $("#userEmail").setValue(userEmail);
     $("#genterWrapper").$(byText("Female")).click();
-    $("#userNumber").setValue("8900333111");
+    $("#userNumber").setValue(userNumber);
     $("#dateOfBirthInput").click();
     $(".react-datepicker__month-select").selectOption("September");
     $(".react-datepicker__year-select").selectOption("2004");
