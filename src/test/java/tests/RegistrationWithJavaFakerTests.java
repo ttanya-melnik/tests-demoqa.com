@@ -38,6 +38,10 @@ public class RegistrationWithJavaFakerTests {
      String lastName = faker.name().lastName(); // lastName: "Hansen"
      String userEmail = faker.internet().emailAddress(); //userEmail: "cecila.beahan@gmail.com"
      String streetAddress = faker.address().streetAddress(); // streetAddress: "109 Larry Circles"
+     String userNumber = "79" + faker.number().digits(9);
+     String userGender = "Female";
+     String subjectsInput = "English";
+
 
 
 
@@ -47,13 +51,13 @@ public class RegistrationWithJavaFakerTests {
     $("#firstName").setValue(firstName);
     $("#lastName").setValue(lastName);
     $("#userEmail").setValue(userEmail);
-    $("#genterWrapper").$(byText("Female")).click();
-    $("#userNumber").setValue("8900333111");
+    $("#genterWrapper").$(byText(userGender)).click();
+    $("#userNumber").setValue(userNumber);
     $("#dateOfBirthInput").click();
     $(".react-datepicker__month-select").selectOption("September");
     $(".react-datepicker__year-select").selectOption("2004");
     $(".react-datepicker__day--028").click();
-    $("#subjectsInput").setValue("English").pressEnter();
+    $("#subjectsInput").setValue(subjectsInput).pressEnter();
     $("#hobbies-checkbox-2").parent().click();
     $("#uploadPicture").uploadFile(new File("src/DataTest/first.jpeg"));
     $("#currentAddress").setValue(streetAddress);
