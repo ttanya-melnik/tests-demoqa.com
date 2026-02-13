@@ -7,8 +7,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static utils.RandomUtils.getRandomAddress;
 import static utils.RandomUtils.getRandomEmail;
+import static utils.RandomUtils.getRandomGender;
 import static utils.RandomUtils.getRandomNumber;
 import static utils.RandomUtils.getRandomString;
+import static utils.RandomUtils.getRandomSubjectsInput;
 
 import com.codeborne.selenide.Configuration;
 import java.io.File;
@@ -36,6 +38,9 @@ public class RegistrationWithRandomUtilsTests {
     String userEmail = getRandomEmail();
     String streetAddress = getRandomAddress();
     String userNumber = getRandomNumber();
+    String userGender = getRandomGender();
+    String subjectsInput = getRandomSubjectsInput();
+
 
 
 
@@ -44,13 +49,15 @@ public class RegistrationWithRandomUtilsTests {
     $("#firstName").setValue(firstName);
     $("#lastName").setValue(lastName);
     $("#userEmail").setValue(userEmail);
-    $("#genterWrapper").$(byText("Female")).click();
+    $("#genterWrapper").$(byText(userGender)).click();
     $("#userNumber").setValue(userNumber);
     $("#dateOfBirthInput").click();
     $(".react-datepicker__month-select").selectOption("September");
     $(".react-datepicker__year-select").selectOption("2004");
     $(".react-datepicker__day--028").click();
-    $("#subjectsInput").setValue("English").pressEnter();
+    $("#subjectsInput").setValue(subjectsInput).pressEnter();
+
+
     $("#hobbies-checkbox-2").parent().click();
     $("#uploadPicture").uploadFile(new File("src/DataTest/first.jpeg"));
     $("#currentAddress").setValue(streetAddress);

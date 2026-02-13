@@ -1,6 +1,7 @@
 package utils;
 
 import java.security.SecureRandom;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
@@ -12,6 +13,7 @@ public class RandomUtils {
     System.out.println(getRandomInt(111, 99999999));
     System.out.println(getRandomNumber());
     System.out.println(getRandomGender());
+    System.out.println(getRandomSubjectsInput());
 
   }
 
@@ -71,5 +73,10 @@ public static  int getRandomInt(int min, int max) {
       return array[index];
  }
 
+ public static String getRandomSubjectsInput ()  {
+   String[] subjects = {"English", "Maths", "Physics", "Chemistry", "History", "Biology", "Arts", "Commerce"};
+   return subjects[new Random().nextInt(subjects.length)];
+
+ }
 
 }
